@@ -10,7 +10,7 @@ on:
 jobs:
   test:
     name: 'Helm'
-    uses: curium-rocks/flows/.github/workflows/helm-qa.yml@main
+    uses: simonhyll/wireguard-flows/.github/workflows/helm-qa.yml@main
     with:
       charts_dir: 'helm'
       helm_extra_sets: '--set service.type=ClusterIP'
