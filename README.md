@@ -2,7 +2,7 @@
 A simple chart that can be used to run wireguard inside of a Kubernetes cluster.
 
 ## Add the helm repo
-To add this helm repo, run `helm repo add wireguard https://bryopsida.github.io/wireguard-chart` followed by a `helm repo update` to fetch the contents.
+To add this helm repo, run `helm repo add wireguard https://simonhyll.github.io/wireguard-chart` followed by a `helm repo update` to fetch the contents.
 
 ## Deploy
 To deploy with defaults and use the automatically generated private key you can use `helm upgrade --install wg-vpn-1 wireguard/wireguard --namespace <your namespace>`.
