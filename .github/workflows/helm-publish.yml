@@ -6,6 +6,7 @@ on:
     paths:
       - "helm/**"
       - ".github/workflows/helm-publish.yml"
+
 jobs:
   Release:
     name: 'Helm'
