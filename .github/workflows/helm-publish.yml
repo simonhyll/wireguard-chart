@@ -9,4 +9,4 @@ on:
 jobs:
   Release:
     name: 'Helm'
-    uses: curium-rocks/flows/.github/workflows/helm-release.yml@main
+    uses: simonhyll/wireguard-flows/.github/workflows/helm-release.yml@main
