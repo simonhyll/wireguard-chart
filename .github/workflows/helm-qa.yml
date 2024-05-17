@@ -16,7 +16,7 @@ jobs:
             ct_extra_args: >-
               --upgrade
     name: 'Helm (${{ matrix.suite.name }})'
-    uses: curium-rocks/flows/.github/workflows/helm-qa.yml@main
+    uses: simonhyll/wireguard-flows/.github/workflows/helm-qa.yml@main
     with:
       charts_dir: 'helm'
       ct_extra_args: ${{ matrix.suite.ct_extra_args }}
