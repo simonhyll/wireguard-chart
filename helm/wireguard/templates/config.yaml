@@ -3,8 +3,8 @@
 [Interface]
 Address = {{ .Values.wireguard.serverAddress }}
 ListenPort = 51820
-PostUp = wg set wg0 private-key /etc/wireguard/privatekey && iptables -t nat -A POSTROUTING {{ $natSourceNetOption }} -o eth0 -j MASQUERADE
-PostDown = iptables -t nat -D POSTROUTING -s {{ $natSourceNetOption }} -o eth0 -j MASQUERADE
+PostUp = wg set wg0 private-key /etc/wireguard/privatekey && iptables -t nat -A POSTROUTING {{ $natSourceNetOption }} {{ .Values.wireguard.natArguments }} -o eth0 -j MASQUERADE
+PostDown = iptables -t nat -D POSTROUTING -s {{ $natSourceNetOption }} {{ .Values.wireguard.natArguments }} -o eth0 -j MASQUERADE
 
 # Clients
 {{- range .Values.wireguard.clients }}
@@ -16,7 +16,7 @@ PostDown = iptables -t nat -D POSTROUTING -s {{ $natSourceNetOption }} -o eth0 -
 # friendly_json = {{ .FriendlyJson | toJson }}
 {{- end }}
 PublicKey = {{ .PublicKey }}
-AllowedIPs = {{ .AllowedIPs }}
+AllowedIPs = {{ join ", " .AllowedIPs }}
 {{- if .PresharedKey }}
 PresharedKey = {{ .PresharedKey }}
 {{- end }}
